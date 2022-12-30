@@ -1,0 +1,39 @@
+﻿Thực thể yếu : luôn pthuoc thực thể khác. VD NHANVIEN->THANNHAN-> [Quan hệ]
+
+Phân cấp 1: 
+A con B => A giống B nhưng có và thuộc tính != B.
+	=> Có liên kết đến B nhưng có liên kết riêng
+VD: SV cao học = SV.Caohoc
+
+Lập sơ đồ : 
+1. Đọc thông tin, xd thực thể
+2. Xác định thuộc tính đã xd
+3. XĐ các mối quan hệ ~ các E.
+4. Vẽ
+
+VD: ...
+Phòng ban : có mô tả => E
+Người quẩn lí => qhan hệ: nv-pban
+Trụ sở - địa diểm -> phòng ban => TT đa trị
+
+E = {Dự án, nhân viên, phòng ban, con cái nv}
+
+Thuộc tính: 
+Phòng ban : tên, mã, địa điểm(đa trị)
+Dự án 	  : tên, mã
+Nhân viên : Số BH, lương, tên, giới, ngSinh, Địa chỉ
+Con cái   : tên, ngSinh , Giới
+
+R:
+Phòng ---- Điều phối ------ Dự án
+Phòng ---- Quản lí	--- Nhân viên
+Nhân viên- Làm việc ------- Phòng
+
+Dự án ---- Làm việc(E:số h làm) ------ Nhân viên
+
+Nhân viên -----		--- con cái
+
+Recursion:
+Quản lí -> qli trực tiếp nhân viên.
+
+ 

@@ -1,0 +1,33 @@
+﻿Mo hinh thực thể liên kết (Entity-relational data module - 1 of Conceptual data module)
+-- Xd trên Object - Object's relation
+-- Tập kí hiệu đồ họa để mô hình hóa : Sơ đồ TTLK
+
+** Thực thể (E).
+	* 1 object thực,độc lập tồn tại, phân biệt đc.
+	* VD : thực thể :  1hs, 1sv . Tập TT: all hs, sv 1 lớp, 1 khoa
+	* KH: Hình chữ nhật
+** Thuộc tính (A).
+	* Đặc trưng cho thực thể.
+	* VD: E(SinhVien) : A(MSSV, Ten, Lop, Khoa, ...)
+	-- 1 số kiểu A: 
+		+ Đơn giản(0 thể chia nhỏ hơn) ---- OVAL
+		+ Phức(đc DN bởi A khác) ---- 
+		+ Đa Giá trị (có thể nhận nhiều gtrị VD: các email. 2 OVAL
+		+ Suy diễn. VD: cho năm sinh => tuổi, OVAL đứt
+	** Khóa : 1/ 1 tập A mà giá trị xác định duy nhất 1 TT trong 1 tập TT
+	VD: SBD, MSSV, CCCD
+	* Khóa chính, khóa phức
+** Liên kết : mối liên hệ giữa nh E.  Hthoi
+** Tập LK : ...
+** Bản thân 1 L có thể có  mô tả cho mqh đó.
+
+* Ràng buộc: 
+	+ 1-1: GV --- <chủ nhiệm> ---- LH (1 vs nhiều nhất 1 != )
+	+ 1-n: GV --- <giảng dạy>----- LH (1 vs nhiều )
+	+ n-n: SV ----<dki>    ------ MHoc (1 sv nhiều môn, 1 môn nh svien)
+	+ đệ quy : môn --- tiên quyết --- môn !=. 
+
+--Để xd DB, có 6 bước.
+- Thu thập => Mô hình hóa (!important) => Lược đồ logic => 
+
++++ Mô hình hóa : nắm bắt, trao đổi, hoàn chỉnh.
