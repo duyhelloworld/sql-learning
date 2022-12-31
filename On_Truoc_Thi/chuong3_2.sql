@@ -47,10 +47,13 @@ SELECT * FROM product WHERE color = "red";
 SELECT sid FROM supply WHERE sid in (SELECT supply.sid FROM supply INNER JOIN sup_prod ON supply.sid = sup_prod.sid WHERE pid = 1 OR pid = 2);
 
 -- sid ca p1, p2
-SELECT sid, sname
-FROM supply
-WHERE sid in (;
-        SELECT * FROM supply
-            INNER JOIN sup_prod ON sup_prod.sid = supply.sid;
-        -- WHERE pid = 2 GROUP BY sid;
+SELECT sid, sname FROM supply WHERE sid in (
+        SELECT sup_prod.sid, supply.sname  FROM supply
+            INNER JOIN sup_prod ON sup_prod.sid = supply.sid
+        WHERE pid = 1
+        INTERSECT 
+        SELECT sup_prod.sid, supply.sname FROM supply
+            INNER JOIN sup_prod ON sup_prod.sid = supply.sid
+        WHERE pid = 2
+        ORDER BY sid
     );
