@@ -1,7 +1,7 @@
 -- Active: 1665826483095@@127.0.0.1@3306@DEMO
 CREATE TABLE student (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(10),
+    sname VARCHAR(10),
     surburb VARCHAR(20)
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE Course (
 
 CREATE TABLE subject (
     no int,
-    name VARCHAR(10),
+    sjname VARCHAR(10),
     dept VARCHAR(10)    
 );
 
@@ -56,6 +56,7 @@ SELECT * FROM `student` ;
 -- Name Student submit course 103
 SELECT * FROM student WHERE id IN (SELECT id FROM student INNER JOIN enrol ON enrol.sid = student.id AND courseid = 103);
 
-
-
-
+SELECT surburb, count(id) FROM student GROUP BY surburb;
+SELECT surburb, sum(id) AS TotalID FROM student GROUP BY surburb;
+-- * HAVING
+SELECT surburb, count(id) FROM student GROUP BY surburb HAVING COUNT(id) > 1;
