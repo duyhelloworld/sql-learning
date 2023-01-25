@@ -48,14 +48,9 @@ SELECT sid FROM supply WHERE sid in (SELECT supply.sid FROM supply INNER JOIN su
 
 SELECT sname FROM supply s, sup_prod sp WHERE s.sid = sp.sid AND (sp.pid = 1 OR sp.pid = 2);
 -- sid ca p1, p2
-SELECT sid, sname FROM supply WHERE sid in (
-        SELECT sup_prod.sid, supply.sname  FROM supply
-            INNER JOIN sup_prod ON sup_prod.sid = supply.sid
-        WHERE pid = 1
-        INTERSECT 
-        SELECT sup_prod.sid, supply.sname FROM supply
-            INNER JOIN sup_prod ON sup_prod.sid = supply.sid
-        WHERE pid = 2
-        ORDER BY sid
-    );
 
+    select sid from sup_prod
+    where pid = 2
+    INTERSECT
+    select sid from sup_prod where pid = 1;
+    
